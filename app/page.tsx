@@ -57,7 +57,7 @@ export default function Home() {
     setActiveOperation("increase");
     try {
       const functionName = inputValue > 0 ? "increaseByValue" : "increaseByOne";
-      const args = inputValue > 0 ? [inputValue] : [];
+      const args: readonly [bigint] | readonly [] = inputValue > 0 ? [BigInt(inputValue)] : [];
 
       await writeContract({
         ...wagmiContractConfig,
@@ -77,7 +77,7 @@ export default function Home() {
     setActiveOperation("decrease");
     try {
       const functionName = inputValue > 0 ? "decreaseByValue" : "decreaseByOne";
-      const args = inputValue > 0 ? [inputValue] : [];
+      const args: readonly [bigint] | readonly [] = inputValue > 0 ? [BigInt(inputValue)] : [];
 
       await writeContract({
         ...wagmiContractConfig,
